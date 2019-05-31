@@ -17,6 +17,10 @@ class TechesController < ApplicationController
 		@tech = Tech.find(params[:id])
 	end
 
+	def index
+		@techs = Tech.all
+	end
+
 	private
 
 	def tech_params
