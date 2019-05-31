@@ -1,0 +1,16 @@
+<div align="center"><h3>Create a new repair order</h3></div>
+
+<%= form_for @repair do |f| %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<%= f.label :estimate %>
+	<%= f.text_field :estimate %>
+
+	<%= f.label :total %>
+	<%= f.text_field :total %>
+
+	<%= f.submit "New repair order" %>
+
+<% end %> 
