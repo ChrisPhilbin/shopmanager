@@ -5,4 +5,6 @@ class Repair < ApplicationRecord
 
 	belongs_to :car
 
+	accepts_nested_attributes_for :techs
+
 end

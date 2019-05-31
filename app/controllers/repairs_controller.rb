@@ -6,13 +6,17 @@ class RepairsController < ApplicationController
 
 	def create
 		@repair = Repair.new(repair_params)
-
+		if @repair.save
+			redirect_to @repair
+		else
+			render :new
+		end
 	end
 
 	private
 
 	def repair_params
-		params.require(:repair).permit(:description, :estimate, :total, :tech_id)
+		params.require(:repair).permit(:description, :estimate, :total, tech_attributes: [:id, :firstname, :lastname])
 	end
 
 end
