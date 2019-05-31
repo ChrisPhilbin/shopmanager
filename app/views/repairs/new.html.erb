@@ -2,16 +2,25 @@
 
 <%= form_for @repair do |f| %>
 
-	<%= f.label :description %>
-	<%= f.text_field :description %>
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_field :description, class: "form-control" %>
+	</div>
 
-	<%= f.label :estimate %>
-	<%= f.text_field :estimate %>
+	<div class="form-group">
+		<%= f.label :estimate %>
+		<%= f.text_field :estimate, class: "form-control" %>
+	</div>
 
-	<%= f.label :total %>
-	<%= f.text_field :total %>
+	<div class="form-group">
+		<%= f.label :total %>
+		<%= f.text_field :total, class: "form-control"  %>
+	</div>
 
-	<%= f.collection_select :tech_id, Tech.all, :id, :firstname %>
+	<div class="form-group">
+		<%= f.label "Assign Tech:" %>
+		<%= f.collection_select :tech_id, Tech.all, :id, :fullname, class: "form-control"  %>
+	</div>
 
 	<%= f.submit "New repair order" %>
 
