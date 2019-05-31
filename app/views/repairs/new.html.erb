@@ -11,6 +11,8 @@
 	<%= f.label :total %>
 	<%= f.text_field :total %>
 
+	<%= f.collection_select :tech_id, Tech.all, :id, :firstname %>
+
 	<%= f.submit "New repair order" %>
 
 <% end %> 
