@@ -1,0 +1,30 @@
+class Tech < ApplicationRecord
+
+	has_many :repairs
+	has_many :customers, through: :repairs
+
+end
+
+class Repairs < ApplicationRecord  #Join table
+
+	belongs_to :tech
+	belongs_to :customer
+
+	belongs_to :car
+
+end
+
+class Customer < ApplicationRecord
+
+	has_many :repairs
+	has_many :techs, through: :repairs
+
+	has_many :cars
+
+end
+
+class Car < ApplicationRecord
+
+	belongs_to :customer
+	has_many :repairs
+end
