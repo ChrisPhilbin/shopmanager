@@ -13,6 +13,10 @@ class TechesController < ApplicationController
 		end
 	end
 
+	def show
+		@tech = Tech.find(params[:id])
+	end
+
 	private
 
 	def tech_params

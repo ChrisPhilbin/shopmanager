@@ -5,4 +5,8 @@ class Tech < ApplicationRecord
 
 	validates_presence_of :firstname, :lastname
 
+	def fullname
+		"#{self.firstname} #{self.lastname}"
+	end
+
 end
