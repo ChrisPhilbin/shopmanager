@@ -27,10 +27,57 @@
 				<%= c.text_field :phone %>
 			</div>
 		</div>
-
 	</div>
 	<% end %>
 
+	<%= f.fields_for :car do |v| %>
+	<div class="container-fluid">
+	    <div class="row">
+	        <div class="col-md-3">
+	        	<%= v.label "Year" %>
+	        	<%= v.text_field :year %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Make" %>
+	        	<%= v.text_field :make %>	        	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Model" %>
+	        	<%= v.text_field :model %>	        	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Color" %>
+	        	<%= v.text_field :color %>
+	        </div>
+	    </div>
+
+	    <div class="row">
+	        <div class="col-md-3">
+	        	<%= v.label "VIN" %>
+	        	<%= v.text_field :vin %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Body Style" %>
+	        	<%= v.text_field :bodystyle %>	        	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Mileage in" %>
+	        	<%= v.text_field :mileagein %>	        	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Mileage out" %>
+	        	<%= v.text_field :mileageout %>
+	        </div>
+	    </div>
+	    
+	</div>
+	<% end %>
 
 	<div class="col-md-4">
 		<div class="form-group">

@@ -3,6 +3,7 @@ class RepairsController < ApplicationController
 	def new
 		@repair = Repair.new
 		@repair.build_customer
+		@repair.build_car
 	end
 
 	def create
