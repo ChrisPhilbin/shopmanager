@@ -1,20 +1,38 @@
 <div align="center"><h3>Create a new repair order</h3></div>
 
 <%= form_for @repair do |f| %>
+
+	<%= f.fields_for :customer do |c| %>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<%= c.label "Customer first name" %>
+				<%= c.text_field :firstname %>
+			</div>
+
+			<div class="col-md-6">
+				<%= c.label "Customer last name" %>
+				<%= c.text_field :lastname %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+
 	<div class="col-md-4">
 		<div class="form-group">
-			<%= f.label "Service adviser notes" %>
-			<%= f.text_field :description, class: "form-control" %>
+			<%= f.label "Service advisor notes" %>
+			<%= f.text_area :advisornotes, class: "form-control" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :estimate %>
-			<%= f.text_field :estimate, class: "form-control" %>
+			<%= f.label "Total Estimate" %>
+			<%= f.text_field :totalestimate, class: "form-control" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :total %>
-			<%= f.text_field :total, class: "form-control"  %>
+			<%= f.label "Actual Total" %>
+			<%= f.text_field :actualtotal, class: "form-control"  %>
 		</div>
 
 		<div class="form-group">
