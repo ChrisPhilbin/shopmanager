@@ -93,22 +93,48 @@
 		</div>
 	</div>
 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Estimated labor" %>
+				<%= f.text_field :estimatelabor, class: "form-control", placeholder: "estimated labor" %>
+			</div>
 
-		<div class="form-group">
-			<%= f.label "Total Estimate" %>
-			<%= f.text_field :totalestimate, class: "form-control" %>
+			<div class="col-md-4">
+				<%= f.label "Estimated parts" %>
+				<%= f.text_field :estimateparts, class: "form-control", placeholder: "estimated parts" %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Total estimate" %>
+				<%= f.text_field :totalestimate, class: "form-control", placeholder: "total estimate" %>
+			</div>
 		</div>
 
-		<div class="form-group">
-			<%= f.label "Actual Total" %>
-			<%= f.text_field :actualtotal, class: "form-control"  %>
-		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Actual labor" %>
+				<%= f.text_field :actuallabor, class: "form-control", placeholder: "actual labor" %>
+			</div>
 
-		<div class="form-group">
+			<div class="col-md-4">
+				<%= f.label "Actual parts" %>
+				<%= f.text_field :actualparts, class: "form-control", placeholder: "actual parts" %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Actual total" %>
+				<%= f.text_field :actualtotal, class: "form-control", placeholder: "actual total" %>
+			</div>
+		</div>
+	</div>				
+
+	<div class="row">
+		<div class="col-md-12">
 			<%= f.label "Assign Tech:" %>
 			<%= f.collection_select :tech_id, Tech.all, :id, :fullname, class: "form-control"  %>
 		</div>
+	</div>
 
 		<%= f.submit "New repair order" %>
-	</div>
 <% end %> 

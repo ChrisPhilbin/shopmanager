@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_235633) do
+ActiveRecord::Schema.define(version: 2019_06_01_164823) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_235633) do
     t.datetime "updated_at", null: false
     t.text "technotes"
     t.integer "customer_id"
+    t.integer "estimatelabor"
+    t.integer "estimateparts"
+    t.integer "actuallabor"
+    t.integer "actualparts"
   end
 
   create_table "teches", force: :cascade do |t|
