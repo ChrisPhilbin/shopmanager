@@ -3,7 +3,7 @@
 <%= form_for @repair do |f| %>
 
 	<%= f.fields_for :customer do |c| %>
-	<div class="container-fluid">
+	<div class="container-fluid repair-form-customer">
 		<div class="row">
 			<div class="col-md-6">
 				<%= c.label "Customer first name" %>
@@ -31,7 +31,7 @@
 	<% end %>
 
 	<%= f.fields_for :car do |v| %>
-	<div class="container-fluid">
+	<div class="container-fluid repair-form-car">
 	    <div class="row">
 	        <div class="col-md-3">
 	        	<%= v.label "Year" %>
@@ -79,7 +79,7 @@
 	</div>
 	<% end %>
 
-	<div class="container-fluid">
+	<div class="container-fluid repair-form-repair">
 		<div class="row">
 			<div class="col-md-6">
 				<%= f.label "Service advisor notes" %>
@@ -91,9 +91,7 @@
 				<%= f.text_area :technotes, class: "form-control", placeholder: "Technician notes / recommendations" %>
 			</div>
 		</div>
-	</div>
 
-	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
 				<%= f.label "Estimated labor" %>
@@ -127,14 +125,8 @@
 				<%= f.text_field :actualtotal, class: "form-control", placeholder: "actual total" %>
 			</div>
 		</div>
+		<%= f.label "Assign Tech:" %>
+		<%= f.collection_select :tech_id, Tech.all, :id, :fullname, class: "form-control"  %>
 	</div>				
-
-	<div class="row">
-		<div class="col-md-12">
-			<%= f.label "Assign Tech:" %>
-			<%= f.collection_select :tech_id, Tech.all, :id, :fullname, class: "form-control"  %>
-		</div>
-	</div>
-
-		<%= f.submit "New repair order" %>
+	<%= f.submit "New repair order" %>
 <% end %> 
