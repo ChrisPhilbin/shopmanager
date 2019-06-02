@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shopmanager</title>
+    <title>Shop Manager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -27,9 +27,10 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">View customers with open repair orders</a>
-              <a class="dropdown-item" href="#">Add a new customer</a>
+              <%= link_to "Add a new customer", new_customer_path, class: "dropdown-item" %>
+              <!-- <a class="dropdown-item" href="#">Add a new customer</a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">View closed repair orders</a>
+              <a class="dropdown-item" href="#">View all customers</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -59,10 +60,10 @@
             <a class="nav-link" href="#">Logout</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+<!--         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
     </nav>
     <%= yield %>

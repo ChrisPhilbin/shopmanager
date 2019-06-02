@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_164823) do
+ActiveRecord::Schema.define(version: 2019_06_02_162929) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_01_164823) do
     t.integer "estimateparts"
     t.integer "actuallabor"
     t.integer "actualparts"
+    t.boolean "open", default: true
   end
 
   create_table "teches", force: :cascade do |t|
