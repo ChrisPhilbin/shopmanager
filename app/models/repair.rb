@@ -9,4 +9,5 @@ class Repair < ApplicationRecord
 	accepts_nested_attributes_for :customer
 	accepts_nested_attributes_for :car
 
+	validates_presence_of :advisornotes, :technotes
 end

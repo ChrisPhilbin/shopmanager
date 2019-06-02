@@ -5,5 +5,5 @@ class Customer < ApplicationRecord
 
 	has_many :cars
 
-	validates_presence_of :name, :email
+	validates_presence_of :firstname, :lastname, :phone, :email
 end
