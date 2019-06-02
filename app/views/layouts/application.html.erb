@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shop Manager</title>
+    <title>Shop Manager - <%= content_for?(:title) ? yield(:title) : "Manage your shop workflow" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,9 +28,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">View customers with open repair orders</a>
               <%= link_to "Add a new customer", new_customer_path, class: "dropdown-item" %>
-              <!-- <a class="dropdown-item" href="#">Add a new customer</a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">View all customers</a>
+              <%= link_to "View all customers", customers_path, class: "dropdown-item" %>
             </div>
           </li>
           <li class="nav-item dropdown">
