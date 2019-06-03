@@ -1,0 +1,19 @@
+<div align="center"><h3>Viewing all customers</h3></div>
+
+<div class="continer-fluid">
+	<% @customers.each do |c| %>
+	<div class="row">
+		<div class="col-md-4">
+			<%= link_to "#{c.fullname}", edit_customer_path(c) %>
+		</div>
+
+		<div class="col-md-4">
+			<%= link_to "View", repairs_path(c) %>
+		</div>
+
+		<div class="col-md-4">
+			<%= link_to "View", cars_path(c) %>
+		</div>
+	</div>
+	<% end %>
+</div>

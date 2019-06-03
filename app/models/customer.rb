@@ -6,4 +6,8 @@ class Customer < ApplicationRecord
 	has_many :cars
 
 	validates_presence_of :firstname, :lastname, :phone, :email
+
+	def fullname
+		"#{self.firstname} #{self.lastname}"
+	end
 end

@@ -1,31 +1,32 @@
 <div align="center"><h3>Enter a new customer</h3></div>
 
 <%= form_for @customer do |f| %>
-	<div class="container-fluid">
+	<div class="container-fluid new-customer">
 		<div class="row">
 			<div class="col-md-6">
 				<%= f.label "First name" %>
-				<%= f.text_field :firstname, placeholder: "first name" %>
+				<%= f.text_field :firstname, class: "form-control", placeholder: "first name" %>
 			</div>
 
 			<div class="col-md-6">
 				<%= f.label "Last name" %>
-				<%= f.text_field :lastname, placeholder: "last name" %>
+				<%= f.text_field :lastname, class: "form-control", placeholder: "last name" %>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-6">
 				<%= f.label "Email address" %>
-				<%= f.text_field :email, placeholder: "john@doe.com" %>
+				<%= f.text_field :email, class: "form-control",  placeholder: "john@doe.com" %>
 			</div>
 
 			<div class="col-md-6">
 				<%= f.label "Phone number" %>
-				<%= f.text_field :phone, placeholder: "123-456-7890" %>
+				<%= f.text_field :phone, class: "form-control", placeholder: "123-456-7890" %>
 			</div>
 		</div>
-
-		<%= f.submit "Create new customer" %>
+		<div class="col-md-12">
+			<%= f.submit "Create new customer" %>
+		</div>
 	</div>
 <% end %>
