@@ -10,4 +10,8 @@ class Repair < ApplicationRecord
 	accepts_nested_attributes_for :car
 
 	validates_presence_of :advisornotes, :technotes
+
+	def closed_repairs
+		Repair.where(open: false)
+	end
 end
