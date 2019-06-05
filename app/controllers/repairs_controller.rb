@@ -8,7 +8,6 @@ class RepairsController < ApplicationController
 
 	def create
 		@repair = Repair.new(repair_params)
-		binding.pry
 		if @repair.save
 			redirect_to @repair
 		else
