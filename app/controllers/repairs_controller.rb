@@ -8,6 +8,7 @@ class RepairsController < ApplicationController
 
 	def create
 		@repair = Repair.new(repair_params)
+		binding.pry
 		if @repair.save
 			redirect_to @repair
 		else
@@ -18,9 +19,8 @@ class RepairsController < ApplicationController
 	private
 
 	def repair_params
-		params.require(:repair).permit(:advisornotes, :totalestimate, :actualtotal,
+		params.require(:repair).permit(:customer_id, :advisornotes, :totalestimate, :actualtotal,
 		 :technotes, :estimatelabor, :estimateparts, :actuallabor, :actualparts, :tech_id,
-		  customer_attributes: [:firstname, :lastname, :email, :phone, :id],
 		   car_attributes: [:year, :make, :model, :color, :vin, :bodystyle, :mileagein, :mileageout])
 	end
 
