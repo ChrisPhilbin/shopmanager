@@ -10,7 +10,7 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.new(car_params)
-		if @car.save?
+		if @car.save
 			redirect_to customer_cars_path
 		else
 			render 'new'
