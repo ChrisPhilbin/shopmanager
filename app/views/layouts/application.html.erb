@@ -27,7 +27,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View my cars", customer_cars_path(current_customer.id, @cars), class: "dropdown-item" %>
-              <%= link_to "Add a new car", new_customer_car_path(current_customer.id, @car), class: "dropdown-item" %>
+              <%= link_to "Add a new car", new_customer_car_path(current_customer.id), class: "dropdown-item" %>
               <a class="dropdown-item" href="#">Check the status of my repairs</a>
             </div>
           </li>

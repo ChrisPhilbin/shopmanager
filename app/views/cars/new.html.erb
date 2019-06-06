@@ -1,15 +1,17 @@
 <% title "Add a new car" %>
 
-<%= form_for @car do |f| %>
+<%= form_for [current_customer, @car] do |f| %>
 
-	<%= f.label_for "Year" %>
-	<%= f.text_area :year %>
+	<%= f.hidden_field :customer_id %>
 
-	<%= f.label_for "Make" %>
-	<%= f.text_area :make %>
+	<%= f.label "Year" %>
+	<%= f.text_field :year %>
 
-	<%= f.label_for "Model" %>
-	<%= f.text_area :model %>
+	<%= f.label "Make" %>
+	<%= f.text_field :make %>
+
+	<%= f.label "Model" %>
+	<%= f.text_field :model %>
 
 	<%= f.submit "Create!" %>
 
