@@ -1,0 +1,20 @@
+<% title "Viewing all my cars" %>
+
+<% if @cars.empty? %>
+
+	<div align="center">
+		<h3>Looks like you don't have any cars entered yet!</h3>
+		<h3>Enter a new car here</h3>
+	<div>
+
+<% else %>
+
+	<% @cars.each do |car| %>
+
+		<%= car.year %><br />
+		<%= car.make %><br />
+		<%= car.model %><br />
+
+	<% end %>
+
+<% end %>
