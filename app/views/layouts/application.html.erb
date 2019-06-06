@@ -19,7 +19,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My profile
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <a class="dropdown-item" href="#">View my cars</a>
+              <a class="dropdown-item" href="#">Check the status of my repairs</a>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,7 +46,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View all techs", teches_path, class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">Add a new tech</a>
+              <%= link_to "Add a new tech", new_tech_path, class: "dropdown-item" %>
+              <!-- <a class="dropdown-item" href="#">Add a new tech</a> -->
             </div>
           </li>
           <li class="nav-item dropdown">
