@@ -2,8 +2,8 @@ class RepairsController < ApplicationController
 
 	def new
 		@repair = Repair.new
-		@repair.build_customer
-		@repair.build_car
+		@customer = Customer.find(params[:customer_id])
+		@car = Car.find(params[:car_id])
 	end
 
 	def create
