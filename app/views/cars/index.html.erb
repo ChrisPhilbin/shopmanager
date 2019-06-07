@@ -11,19 +11,11 @@
 
 	<% @cars.each do |car| %>
 	<div class="row">
-		<div class="col-md-3">
-			<%= car.year %><br />
+		<div class="col-md-6">
+			<%= car.ymm %><br />
 		</div>
 
-		<div class="col-md-3">
-			<%= car.make %><br />
-		</div>
-
-		<div class="col-md-3">
-			<%= car.model %><br />
-		</div>
-
-		<div class="col-md-3">
+		<div class="col-md-6">
 			<%= link_to "Edit this car", edit_customer_car_path(current_customer.id, car) %>
 		</div>
 	<% end %>

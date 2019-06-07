@@ -21,6 +21,10 @@ class CarsController < ApplicationController
 		@cars = current_customer.cars
 	end
 
+	def edit
+
+	end
+
 	private
 
 	def car_params
