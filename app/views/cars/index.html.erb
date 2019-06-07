@@ -8,15 +8,27 @@
 	<div>
 
 <% else %>
-
+<br>
+	<div align="center">
+		<h3>Displaying all cars</h3>
+	</div>
+<br>
 	<% @cars.each do |car| %>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-3">
 			<%= car.ymm %><br />
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-3">
 			<%= link_to "Edit this car", edit_customer_car_path(current_customer.id, car) %>
+		</div>
+
+		<div class="col-md-3">
+			<%= link_to "Open a repair request for this car", new_customer_car_repair_path(current_customer.id, car.id) %>
+		</div>
+
+		<div class="col-md-3">
+			<%= link_to "View all repairs for this car", customer_car_repairs_path(current_customer.id, car.id) %>
 		</div>
 	<% end %>
 

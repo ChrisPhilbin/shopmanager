@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :teches
   resources :repairs
   resources :customers do
-  	resources :cars
-  	# resources :repairs
+  	resources :cars do
+  		resources :repairs
+  	end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
