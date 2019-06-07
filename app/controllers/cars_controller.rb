@@ -22,7 +22,13 @@ class CarsController < ApplicationController
 	end
 
 	def edit
+		@car = Car.find(params[:id])
+	end
 
+	def update
+		@car = Car.find(params[:id])
+		@car.update_attributes(car_params)
+		redirect_to customer_cars_path
 	end
 
 	private

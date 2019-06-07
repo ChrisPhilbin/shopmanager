@@ -1,2 +1,19 @@
 <% title "Editing information" %>
 
+
+<%= form_for [current_customer, @car] do |f| %>
+
+	<%= f.hidden_field :customer_id %>
+
+	<%= f.label "Year" %>
+	<%= f.text_field :year %>
+
+	<%= f.label "Make" %>
+	<%= f.text_field :make %>
+
+	<%= f.label "Model" %>
+	<%= f.text_field :model %>
+
+	<%= f.submit "Save!" %>
+
+<% end %>
