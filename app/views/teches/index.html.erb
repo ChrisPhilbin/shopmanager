@@ -1,8 +1,11 @@
+<% title "Displaying all technicians" %>
+
 <div align="center"><h3>Listing all technicians</h3></div>
 
 <table class="table table-hover">
   <thead>
     <tr>
+      <th scope="col">Tech id</th>
       <th scope="col">Tech name</th>
       <th scope="col">View all repairs by tech</th>
       <th scope="col">View all customers tech has serviced</th>
@@ -12,8 +15,9 @@
   <tbody>
     <% @techs.each do |tech| %>
     <tr>
-      <th scope="row"><%= tech.fullname %></th>
-      <td>View repairs</td>
+      <th scope="row"><%= tech.id %></th>
+      <td><%= tech.fullname %></td>
+      <td>View repairs by <%= tech.firstname %></td>
       <td>View customers</td>
       <td>Edit</td>
     </tr>

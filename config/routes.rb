@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'static#index'
 
   devise_for :customers, controllers: { sessions: 'customers/sessions'}
-  resources :teches
-  resources :repairs
+  resources :teches do
+    resources :repairs
+  end
+  # resources :repairs
   resources :customers do
   	resources :cars do
   		resources :repairs
