@@ -21,17 +21,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My profile
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "View my cars", customer_cars_path(current_customer.id, @cars), class: "dropdown-item" %>
-              <%= link_to "Add a new car", new_customer_car_path(current_customer.id), class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">Open a new repair</a>
-              <a class="dropdown-item" href="#">Check the status of my repairs</a>
-            </div>
-          </li>
+          <%if customer_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "View my cars", customer_cars_path(current_customer.id, @cars), class: "dropdown-item" %>
+                <%= link_to "Add a new car", new_customer_car_path(current_customer.id), class: "dropdown-item" %>
+                <a class="dropdown-item" href="#">Open a new repair</a>
+                <a class="dropdown-item" href="#">Check the status of my repairs</a>
+              </div>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Customers

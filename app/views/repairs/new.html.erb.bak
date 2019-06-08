@@ -1,0 +1,136 @@
+<% title "Add a new repair order" %>
+
+
+<div align="center"><h3>Create a new repair order</h3></div>
+
+<%= form_for @repair do |f| %>
+
+ 	<%= f.fields_for @customer do |c| %>
+	<div class="container-fluid repair-form-customer">
+		<div class="row">
+				<div class="col-md-6">
+					<%= c.label "Customer first name" %>
+					<%= c.text_field :firstname, class: "form-control", placeholder: "customer first name", :readonly => true %>
+				</div>
+
+				<div class="col-md-6">
+					<%= c.label "Customer last name" %>
+					<%= c.text_field :lastname, class: "form-control", placeholder: "customer last name", :readonly => true  %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<%= c.label "Customer Email" %>
+					<%= c.text_field :email, class: "form-control", placeholder: "customer email", :readonly => true  %>
+				</div>
+
+				<div class="col-md-6">
+					<%= c.label "Customer Phone Number" %>
+					<%= c.text_field :phone, class: "form-control", placeholder: "customer phone number", :readonly => true  %>
+				</div>
+			</div>
+		</div>
+	 </div>
+	 <% end %>
+
+	<%= f.fields_for @car do |v| %>
+	<div class="container-fluid repair-form-car">
+	    <div class="row">
+	        <div class="col-md-3">
+	        	<%= v.label "Year" %>
+	        	<%= v.text_field :year, class: "form-control", placeholder: "vehicle year" %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Make" %>
+	        	<%= v.text_field :make, class: "form-control", placeholder: "vehicle make" %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Model" %>
+	        	<%= v.text_field :model, class: "form-control", placeholder: "vehicle model" %>      	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Color" %>
+	        	<%= v.text_field :color, class: "form-control", placeholder: "vehicle color" %>
+	        </div>
+	    </div>
+
+	    <div class="row">
+	        <div class="col-md-3">
+	        	<%= v.label "VIN" %>
+	        	<%= v.text_field :vin, class: "form-control", placeholder: "vehicle vin" %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Body Style" %>
+	        	<%= v.text_field :bodystyle, class: "form-control", placeholder: "vehicle bodystyle" %>
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Mileage in" %>
+	        	<%= v.text_field :mileagein, class: "form-control", placeholder: "mileage in"  %>	        	
+	        </div>
+
+	        <div class="col-md-3">
+	        	<%= v.label "Mileage out" %>
+	        	<%= v.text_field :mileageout, class: "form-control", placeholder: "mileage out" %>
+	        </div>
+	    </div>
+
+	</div>
+	<% end %>
+
+	<div class="container-fluid repair-form-repair">
+		<div class="row">
+			<div class="col-md-6">
+				<%= f.label "Service advisor notes" %>
+				<%= f.text_area :advisornotes, class: "form-control", placeholder: "Service advisor notes / initial customer concerns", :readonly => true   %>
+			</div>
+
+			<div class="col-md-6">
+				<%= f.label "Technician notes / Recommendations" %>
+				<%= f.text_area :technotes, class: "form-control", placeholder: "Technician notes / recommendations", :readonly => true   %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Estimated labor" %>
+				<%= f.text_field :estimatelabor, class: "form-control", placeholder: "estimated labor", :readonly => true   %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Estimated parts" %>
+				<%= f.text_field :estimateparts, class: "form-control", placeholder: "estimated parts", :readonly => true   %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Total estimate" %>
+				<%= f.text_field :totalestimate, class: "form-control", placeholder: "total estimate", :readonly => true   %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Actual labor" %>
+				<%= f.text_field :actuallabor, class: "form-control", placeholder: "actual labor", :readonly => true   %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Actual parts" %>
+				<%= f.text_field :actualparts, class: "form-control", placeholder: "actual parts", :readonly => true  , :readonly => true   %>
+			</div>
+
+			<div class="col-md-4">
+				<%= f.label "Actual total" %>
+				<%= f.text_field :actualtotal, class: "form-control", placeholder: "actual total", :readonly => true   %>
+			</div>
+		</div>
+		<%= f.label "Assign Tech:" %>
+		<%= f.collection_select :tech_id, Tech.all, :id, :fullname, class: "form-control", :readonly => true    %>
+	</div>				
+	<%= f.submit "New repair order" %>
+<% end %> 

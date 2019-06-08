@@ -4,23 +4,23 @@ class RepairsController < ApplicationController
 		@repair = Repair.new
 		@customer = Customer.find(params[:customer_id])
 		@car = Car.find(params[:car_id])
+		# @tech = Tech.find(2)
 	end
 
 	def create
 		@repair = Repair.new(repair_params)
+		binding.pry
 		if @repair.save
 			redirect_to @repair
 		else
-			render :new
+			render 'repairs/new'
 		end
 	end
 
 	private
 
 	def repair_params
-		params.require(:repair).permit(:customer_id, :advisornotes, :totalestimate, :actualtotal,
-		 :technotes, :estimatelabor, :estimateparts, :actuallabor, :actualparts, :tech_id,
-		   car_attributes: [:year, :make, :model, :color, :vin, :bodystyle, :mileagein, :mileageout])
+		params.require(:repair).permit(:customercomments, :customer_id, :car_id, :tech_id)
 	end
 
 end
