@@ -1,0 +1,10 @@
+<div align="center"><h3>Viewing all repairs for your <%= @car.ymm %></h3></div>
+
+<% @repairs.each do |repair| %>
+
+	<%= repair.id %><br />
+	<%= repair.customercomments %>
+	<%= repair.technotes %>
+	<%= repair.actualtotal %>
+
+<% end %>

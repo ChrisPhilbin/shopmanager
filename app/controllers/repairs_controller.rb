@@ -4,17 +4,21 @@ class RepairsController < ApplicationController
 		@repair = Repair.new
 		@customer = Customer.find(params[:customer_id])
 		@car = Car.find(params[:car_id])
-		# @tech = Tech.find(2)
 	end
 
 	def create
 		@repair = Repair.new(repair_params)
-		binding.pry
 		if @repair.save
 			redirect_to @repair
 		else
 			render 'repairs/new'
 		end
+	end
+
+	def index
+		@repairs = Repair.where(car_id: params[:car_id])
+		binding.pry
+		@car = Car.find(params[:car_id])
 	end
 
 	private
