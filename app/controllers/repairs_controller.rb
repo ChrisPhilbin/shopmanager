@@ -17,7 +17,6 @@ class RepairsController < ApplicationController
 
 	def index
 		@repairs = Repair.where(car_id: params[:car_id])
-		binding.pry
 		@car = Car.find(params[:car_id])
 	end
 

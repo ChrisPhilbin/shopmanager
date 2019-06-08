@@ -1,7 +1,22 @@
 <div align="center"><h3>Listing all technicians</h3></div>
 
-<% @techs.each do |tech| %>
-
-	<%= tech.fullname %><br />
-
-<% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Tech name</th>
+      <th scope="col">View all repairs by tech</th>
+      <th scope="col">View all customers tech has serviced</th>
+      <th scope="col">Edit Tech details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @techs.each do |tech| %>
+    <tr>
+      <th scope="row"><%= tech.fullname %></th>
+      <td>View repairs</td>
+      <td>View customers</td>
+      <td>Edit</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

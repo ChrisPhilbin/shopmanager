@@ -2,9 +2,10 @@
 
 <% @repairs.each do |repair| %>
 
-	<%= repair.id %><br />
-	<%= repair.customercomments %>
-	<%= repair.technotes %>
-	<%= repair.actualtotal %>
+	Repair id: <%= repair.id %><br />
+	Your initial request: <%= repair.customercomments %><br />
+	Technician notes / recommendations:<%= repair.technotes %><br />
+	Repair total: $<%= repair.actualtotal %><br />
+	Repair status: <% if repair.open %>Open<% else %>Closed<% end %>
 
 <% end %>
