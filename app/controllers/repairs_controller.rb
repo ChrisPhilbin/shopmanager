@@ -9,9 +9,12 @@ class RepairsController < ApplicationController
 	def create
 		@repair = Repair.new(repair_params)
 		if @repair.save
-			redirect_to @repair
+			redirect_to customer_car_repairs_path(@repair.customer_id, @repair.car_id)
 		else
-			render 'repairs/new'
+			flash[:alert] = "Repair order could not be saved - Please correct the below errors"
+			@customer = Customer.find(params[:customer_id])
+			@car = Car.find(params[:car_id])
+			render 'new'
 		end
 	end
 
