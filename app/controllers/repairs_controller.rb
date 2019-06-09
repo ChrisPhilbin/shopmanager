@@ -19,7 +19,6 @@ class RepairsController < ApplicationController
 		if params[:tech_id]
 			@repairs = Repair.where(tech_id: params[:tech_id])
 			@tech = Tech.find(params[:tech_id])
-			binding.pry
 			render '/teches/show_all_repairs'
 		else
 			@repairs = Repair.where(car_id: params[:car_id])

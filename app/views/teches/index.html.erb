@@ -17,7 +17,7 @@
     <tr>
       <th scope="row"><%= tech.id %></th>
       <td><%= tech.fullname %></td>
-      <td>View repairs by <%= tech.firstname %></td>
+      <td><%= link_to "View repairs by #{tech.firstname}", tech_repairs_path(tech) %></td>
       <td>View customers</td>
       <td>Edit</td>
     </tr>

@@ -5,7 +5,11 @@ class CustomersController < ApplicationController
 	end
 
 	def index
-		@customers = Customer.all
+		if params[:tech_id]
+			render 'customers/viewbytech'
+		else
+			@customers = Customer.all
+		end
 	end
 
 	def edit
