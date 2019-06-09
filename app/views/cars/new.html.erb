@@ -1,18 +1,35 @@
 <% title "Add a new car" %>
 
+<div align="center"><h3>Add a new car</h3></div>
+
 <%= form_for [current_customer, @car] do |f| %>
 
 	<%= f.hidden_field :customer_id %>
 
-	<%= f.label "Year" %>
-	<%= f.text_field :year %>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Year" %>
+				<%= f.text_field :year, class: "form-control" %>
+			</div>
+		</div>
 
-	<%= f.label "Make" %>
-	<%= f.text_field :make %>
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Make" %>
+				<%= f.text_field :make, class: "form-control" %>
+			</div>
+		</div>
 
-	<%= f.label "Model" %>
-	<%= f.text_field :model %>
-
+		<div class="row">
+			<div class="col-md-4">
+				<%= f.label "Model" %>
+				<%= f.text_field :model, class: "form-control" %>
+			</div>
+		</div>
+	<br>
 	<%= f.submit "Create!" %>
+
+	</div>
 
 <% end %>
