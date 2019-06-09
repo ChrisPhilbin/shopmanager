@@ -2,6 +2,16 @@
 
 <div align="center"><h3>Enter a new customer</h3></div>
 
+
+<% if @customer.errors.any? %>
+<h4>The following errors prevented the customer from being saved</h4>
+	<ul>
+		<% @customer.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= form_for @customer do |f| %>
 	<div class="container-fluid new-customer">
 		<div class="row">

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :customers, controllers: { sessions: 'customers/sessions'}
   resources :teches do
-    resources :repairs
+    # resources :repairs
     resources :customers
   end
   # resources :repairs
