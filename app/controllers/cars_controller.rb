@@ -11,8 +11,10 @@ class CarsController < ApplicationController
 	def create
 		@car = Car.new(car_params)
 		if @car.save
+			flash[:notice] = "Car was created!"
 			redirect_to customer_cars_path
 		else
+			flash[:alert] = "Please fill out the required fields!"
 			render 'new'
 		end
 	end

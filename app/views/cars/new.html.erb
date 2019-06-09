@@ -2,6 +2,16 @@
 
 <div align="center"><h3>Add a new car</h3></div>
 
+<% if @car.errors.any? %>
+<h4>The following errors prevented the new car from being saved</h4>
+	<ul>
+		<% @car.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+
 <%= form_for [current_customer, @car] do |f| %>
 
 	<%= f.hidden_field :customer_id %>
