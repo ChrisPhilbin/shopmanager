@@ -30,6 +30,7 @@
                 <%= link_to "View my cars", customer_cars_path(current_customer.id, @cars), class: "dropdown-item" %>
                 <%= link_to "Add a new car", new_customer_car_path(current_customer.id), class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">Check the status of my repairs</a>
+                <%= link_to "Edit my details", edit_customer_path(current_customer.id), class: "dropdown-item" %>
               </div>
             </li>
           <% end %>
