@@ -7,8 +7,10 @@ class TechesController < ApplicationController
 	def create
 		@tech = Tech.new(tech_params)
 		if @tech.save
+			flash.now.alert = "The new tech has been saved to the app!"
 			redirect_to @tech
 		else
+			flash.now.alert = "The new tech could not be saved - Please correct the below errors!"
 			render :new
 		end
 	end

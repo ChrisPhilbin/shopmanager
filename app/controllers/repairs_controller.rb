@@ -11,7 +11,7 @@ class RepairsController < ApplicationController
 		if @repair.save
 			redirect_to customer_car_repairs_path(@repair.customer_id, @repair.car_id)
 		else
-			flash[:alert] = "Repair order could not be saved - Please correct the below errors"
+			flash.now.alert = "Repair order could not be saved - Please correct the below errors"
 			@customer = Customer.find(params[:customer_id])
 			@car = Car.find(params[:car_id])
 			render 'new'

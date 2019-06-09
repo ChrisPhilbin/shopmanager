@@ -14,7 +14,7 @@ class CarsController < ApplicationController
 			flash[:notice] = "Car was created!"
 			redirect_to customer_cars_path
 		else
-			flash[:alert] = "Please fill out the required fields!"
+			flash.now.alert = "Please fill out the required fields!"
 			render 'new'
 		end
 	end
