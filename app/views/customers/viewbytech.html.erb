@@ -1,1 +1,7 @@
 <% title "Viewing customers serviced by TECH" %>
+
+<% @customers.each do |customer| %>
+
+	<%= customer.fullname %><br />
+
+<% end %>

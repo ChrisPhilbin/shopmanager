@@ -6,6 +6,8 @@ class CustomersController < ApplicationController
 
 	def index
 		if params[:tech_id]
+			@customers = Customer.customerstouched(params[:tech_id])
+			binding.pry
 			render 'customers/viewbytech'
 		else
 			@customers = Customer.all
