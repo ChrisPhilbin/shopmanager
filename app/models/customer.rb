@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
 
 	has_many :cars
 
-	validates_presence_of :firstname, :lastname, :phone, :email
+	validates_presence_of :firstname, :lastname, :email
 
 	def fullname
 		"#{self.firstname} #{self.lastname}"
@@ -34,8 +34,11 @@ class Customer < ApplicationRecord
 
 	def self.from_omniauth(auth)
       where(provider: auth.provider, id: auth.uid).first_or_create do |customer|
+      	  arr = auth['info']['name'].split(" ")
+          customer.firstname = arr[0]
+          customer.lastname = arr[1]
 	      customer.email = auth.info.email
 	      customer.password = Devise.friendly_token[0,20]
-      end      
+      end
   	end
 end
