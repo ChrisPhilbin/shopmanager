@@ -1,4 +1,4 @@
-class Repair < ApplicationRecord
+Aclass Repair < ApplicationRecord
 
 	belongs_to :tech
 	belongs_to :customer

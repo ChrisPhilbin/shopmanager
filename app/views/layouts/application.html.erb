@@ -35,38 +35,46 @@
               </div>
             </li>
           <% end %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Customers
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">View customers with open repair orders</a>
-              <%= link_to "View all customers", customers_path, class: "dropdown-item" %>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Techs
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "View all techs", teches_path, class: "dropdown-item" %>
-              <%= link_to "Add a new tech", new_tech_path, class: "dropdown-item" %>
-              <!-- <a class="dropdown-item" href="#">Add a new tech</a> -->
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Repairs
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Open repair orders</a>
-              <a class="dropdown-item" href="#">Closed repair orders</a>
-            </div>
-          </li>
+
+          <% if tech_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Customers
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">View customers with open repair orders</a>
+                <%= link_to "View all customers", customers_path, class: "dropdown-item" %>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Techs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "View all techs", teches_path, class: "dropdown-item" %>
+                <%= link_to "Add a new tech", new_tech_path, class: "dropdown-item" %>
+                <!-- <a class="dropdown-item" href="#">Add a new tech</a> -->
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Repairs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Open repair orders</a>
+                <a class="dropdown-item" href="#">Closed repair orders</a>
+              </div>
+            </li>
+          <% end %>
+
           <li class="nav-item">
             <% if customer_signed_in? %>
               <li>
               <%= link_to('Logout', destroy_customer_session_path, method: :delete, class: "nav-link") %>        
+              </li>
+            <% elsif tech_signed_in? %>
+              <li>
+              <%= link_to('Logout', destroy_tech_session_path, method: :delete, class: "nav-link") %>        
               </li>
             <% else %>
               <li>
