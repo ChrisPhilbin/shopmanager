@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   		resources :repairs
   	end
   end
+
+  get '/repairs/open' => 'repairs#openrepairs'
+  get '/repairs/closed' => 'repairs#closedrepairs'
+  get '/repairs/unassigned' => 'repairs#unassignedrepairs'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

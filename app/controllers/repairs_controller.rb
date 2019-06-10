@@ -29,6 +29,19 @@ class RepairsController < ApplicationController
 		end
 	end
 
+	def openrepairs
+		@repairs = Repair.open_repairs
+	end
+
+	def closedrepairs
+		@repairs = Repair.closed_repairs
+	end
+
+	def unassignedrepairs
+		@repairs = Repair.unassigned_repairs
+		binding.pry
+	end	
+
 	private
 
 	def repair_params

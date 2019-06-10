@@ -61,7 +61,8 @@
                 Repairs
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Open repair orders</a>
+                <%= link_to "Open repair orders", repairs_open_path, class: "dropdown-item" %>
+                <!-- <a class="dropdown-item" href="#">Open repair orders</a> -->
                 <a class="dropdown-item" href="#">Closed repair orders</a>
               </div>
             </li>
