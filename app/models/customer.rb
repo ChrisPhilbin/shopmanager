@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
 
 	has_many :repairs
-	has_many :techs, through: :repairs
+	has_many :teches, through: :repairs
 
 	has_many :cars
 
