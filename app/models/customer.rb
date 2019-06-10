@@ -39,6 +39,7 @@ class Customer < ApplicationRecord
           customer.lastname = arr[1]
 	      customer.email = auth.info.email
 	      customer.password = Devise.friendly_token[0,20]
+	      binding.pry
       end
   	end
 end
