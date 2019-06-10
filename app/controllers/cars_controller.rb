@@ -20,6 +20,7 @@ class CarsController < ApplicationController
 	end
 
 	def index
+		binding.pry
 		@cars = current_customer.cars
 	end
 

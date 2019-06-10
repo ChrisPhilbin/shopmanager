@@ -31,3 +31,9 @@
 /config/master.key
 
 .env
+
+config/initializers/devise.rb
+/config/initializers/devise.rb
+
+/config/initializers/omniauth.rb
+config/initializers/omniauth.rb

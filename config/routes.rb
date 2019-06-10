@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'static#index'
-  get '/auth/facebook/callback' => 'sessions#create'
-
-  devise_for :customers, controllers: { sessions: 'customers/sessions'}
+  # get '/auth/facebook/callback' => 'sessions#create'
+    devise_for :customers, :controllers => { :omniauth_callbacks => "customers/omniauth_callbacks" }
+  # devise_for :customers, controllers: { sessions: 'customers/sessions'}
   resources :teches do
     resources :repairs
     resources :customers

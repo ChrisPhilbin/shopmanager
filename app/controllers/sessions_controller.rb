@@ -1,6 +1,7 @@
     class SessionsController < ApplicationController
       def create
         @customer = Customer.find_or_create_by(email: auth['info']['email']) do |u|
+    
           arr = auth['info']['name'].split(" ")
           u.firstname = arr[0]
           u.lastname = arr[1]
@@ -8,7 +9,8 @@
           # u.image = auth['info']['image']
         end
      
-        session[:current_customer] = @customer
+        session[:customer_id] = @customer.id
+        # session[:current_customer] = Customer.find(session[:customer_id])
      
         redirect_to customer_cars_path(@customer.id)
       end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_222046) do
+ActiveRecord::Schema.define(version: 2019_06_10_114152) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_222046) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end

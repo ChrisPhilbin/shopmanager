@@ -2,7 +2,8 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook]
 
 	has_many :repairs
 	has_many :techs, through: :repairs
@@ -30,4 +31,11 @@ class Customer < ApplicationRecord
 		end
 		@techscustomers
 	end
+
+	def self.from_omniauth(auth)
+      where(provider: auth.provider, id: auth.uid).first_or_create do |customer|
+	      customer.email = auth.info.email
+	      customer.password = Devise.friendly_token[0,20]
+      end      
+  	end
 end
